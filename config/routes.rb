@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user/password'
+  get 'user/email'
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
