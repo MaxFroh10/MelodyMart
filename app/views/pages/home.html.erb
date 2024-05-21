@@ -34,24 +34,16 @@
 </div>
 
 <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
         <% @instruments.each do |instrument| %>
         <div class="col">
-          <div class="card shadow-sm">
-          <%= image_tag instrument.picture, height: 250, class: "object-fit-fill" %>
+          <div class="card border-dark" style="width: 18rem; border-radius: 8px;">
+            <%= image_tag instrument.picture, height:250, class:"card-img-top", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
             <div class="card-body">
-              <p class="card-text"><%= instrument.name %>
-              </p>
-              <p class="card-text"><%= instrument.description %>
-              </p>
-              <p class="card-text"><%= "#{instrument.price}€" %>
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
+              <h5 class="card-title fw-bold"><%= instrument.name %></h5>
+              <p class="card-text"><%= instrument.description %></p>
+              <p class="card-text"><%= "#{instrument.price}€" %></p>
+              <a href="#" class="btn btn-secondary" style="border-radius: 6px;">View</a>
             </div>
           </div>
         </div>
