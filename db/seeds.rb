@@ -25,21 +25,22 @@ p "Created #{User.count} users"
 
 Instrument.destroy_all
 
-Instrument.create!([{
+Instrument.create!([
+  {
   user_id: user1.id,
   name: "banjo",
   category: "guitare",
   price: 10,
   description: "ceci est un banjo",
-  picture: "https://d1aeri3ty3izns.cloudfront.net/media/64/647602/600/preview.jpg"}
-  ,
-{
+  picture: "https://d1aeri3ty3izns.cloudfront.net/media/64/647602/600/preview.jpg"},
+  {
   user_id: user1.id,
   name: "batterie",
   category: "percussion",
   price: 20,
   description: "ceci est une batterie",
-  picture: "https://www.dwdrums.com/_next/image/?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F165398%2F1644x1040%2F38d1e57402%2Fdw_key_drumrug_1644x1040.png&w=1080&q=75"}
-])
+  picture: "https://www.dwdrums.com/_next/image/?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F165398%2F1644x1040%2F38d1e57402%2Fdw_key_drumrug_1644x1040.png&w=1080&q=75"
+}
+  ])
 
 p "Created #{Instrument.count} instruments"
