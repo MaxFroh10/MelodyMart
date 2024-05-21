@@ -27,14 +27,14 @@ Instrument.destroy_all
 
 Instrument.create!([
   {
-  user_id: user1.id,
+  owner_id: user1.id,
   name: "banjo",
   category: "guitare",
   price: 10,
   description: "ceci est un banjo",
   picture: "https://d1aeri3ty3izns.cloudfront.net/media/64/647602/600/preview.jpg"},
   {
-  user_id: user1.id,
+  owner_id: user1.id,
   name: "batterie",
   category: "percussion",
   price: 20,
