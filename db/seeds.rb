@@ -9,33 +9,33 @@
 #   end
 
 
-User.destroy_all
+# User.destroy_all
 
-user1 = User.create!({
-  email: "maximerobertcolin@gmail.com"
-})
+# user1 = User.create!({
+#   email: "maximerobertcolin@gmail.com"
+# })
 
-user2 = User.create!({
-  email: "huretantoine@gmail.com"
-})
+# user2 = User.create!({
+#   email: "huretantoine@gmail.com"
+# })
 
-p "Created #{User.count} users"
+# p "Created #{User.count} users"
 
-Instrument.destroy_all
+# Instrument.destroy_all
 
-Instrument.create!([{
-  user_id: user1.id,
-  name: "banjo",
-  category: "guitare",
-  price: 10,
-  description: "ceci est un banjo",
-},
-{
-  user_id: user1.id,
-  name: "batterie",
-  category: "percussion",
-  price: 20,
-  description: "ceci est une batterie",}
-])
+# Instrument.create!([{
+#   user_id: user1.id,
+#   name: "banjo",
+#   category: "guitare",
+#   price: 10,
+#   description: "ceci est un banjo",
+# },
+# {
+#   user_id: user1.id,
+#   name: "batterie",
+#   category: "percussion",
+#   price: 20,
+#   description: "ceci est une batterie",}
+# ])
 
-p "Created #{Instrument.count} instruments"
+# p "Created #{Instrument.count} instruments"

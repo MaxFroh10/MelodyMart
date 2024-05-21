@@ -73,4 +73,9 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # Highlight code that triggered database queries in logs.
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # TODO : Change when pushing in production
+
 end
