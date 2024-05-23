@@ -1,0 +1,38 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon mb-3">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "logo.png"%>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Accueil", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+          <li class="nav-item active">
+            <%= link_to "Ajouter un Instrument", new_instrument_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Dashboard", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://www.programme-tv.net/imgre/fit/~2~providerPerson~0333e8de58034d20.jpeg/300x300/quality/80/katsuni.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Déconnexion", root_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+          <% else %>
+          <li class="nav-item">
+          <%= link_to "Connexion", root_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
