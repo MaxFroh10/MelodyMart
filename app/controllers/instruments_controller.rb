@@ -1,5 +1,6 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /instruments
   def index
@@ -18,10 +19,13 @@ class InstrumentsController < ApplicationController
   # POST /instruments
   def create
     @instrument = Instrument.new(instrument_params)
+    # Add current user as owner of the instrument
+    @instrument.owner = current_user
 
     if @instrument.save
       redirect_to @instrument, notice: "Instrument was successfully created."
     else
+      puts @instrument.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
@@ -54,6 +58,6 @@ class InstrumentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def instrument_params
-    params.require(:instrument).permit(:category, :name, :description, :price, :picture)
+    params.require(:instrument).permit(:category, :name, :description, :price, :picture, :owner)
   end
 end
