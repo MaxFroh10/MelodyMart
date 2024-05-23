@@ -1,0 +1,8 @@
+<h1><%= @instrument.name %></h1>
+
+<div id="instrument">
+  <%= render @instrument %>
+  <p> <%= link_to "Update Instrument", edit_instrument_path %></p>
+  <br>
+  <p> <%= link_to "Back to Instruments", instruments_path %></p>
+</div>
