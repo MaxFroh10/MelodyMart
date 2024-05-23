@@ -1,0 +1,23 @@
+<div id="<%= dom_id instrument %>">
+  <p>
+    <strong>Picture:</strong>
+    <%# <%= instrument.picture %>
+    <%= image_tag(instrument.picture, width: "100px", height: "100px") if instrument.picture.present? %>
+  </p>
+  <p>
+    <strong>Category:</strong>
+    <%= instrument.category %>
+  </p>
+  <p>
+    <strong>Name:</strong>
+    <%= instrument.name %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= instrument.description %>
+  </p>
+  <p>
+    <strong>Price:</strong>
+    <%= number_to_currency(instrument.price) %>
+  </p>
+</div>
