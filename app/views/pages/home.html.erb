@@ -46,7 +46,9 @@
               <div class="d-flex justify-content-end">
               <div>
                 <a href="#" class="btn btn-secondary me-2" style="border-radius: 6px;">Voir</a>
-                <a href="#" class="btn btn-secondary" style="border-radius: 6px;">Louer</a>
+                <p>
+                  <%= link_to "Louer", new_instrument_booking_path(instrument), class: "btn btn-primary", style:"border-radius: 6px;" %>
+                </p>
               </div>
               </div>
             </div>
