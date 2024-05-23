@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_185940) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_21_193011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "renter_id", null: false
     t.bigint "instrument_id", null: false
     t.date "start_date"
     t.date "end_date"
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_185940) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["instrument_id"], name: "index_bookings_on_instrument_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["renter_id"], name: "index_bookings_on_renter_id"
   end
 
   create_table "instruments", force: :cascade do |t|
@@ -31,11 +31,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_185940) do
     t.string "name"
     t.text "description"
     t.float "price"
-    t.bigint "user_id", null: false
+    t.bigint "owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
-    t.index ["user_id"], name: "index_instruments_on_user_id"
+    t.index ["owner_id"], name: "index_instruments_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,6 +51,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_185940) do
   end
 
   add_foreign_key "bookings", "instruments"
-  add_foreign_key "bookings", "users"
-  add_foreign_key "instruments", "users"
+  add_foreign_key "bookings", "users", column: "renter_id"
+  add_foreign_key "instruments", "users", column: "owner_id"
 end
