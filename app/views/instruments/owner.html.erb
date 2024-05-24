@@ -1,0 +1,12 @@
+<h1>Your Instruments</h1>
+
+<% @instruments.each do |instrument| %>
+  <p>
+    <strong>Name:</strong> <%= instrument.name %><br>
+    <strong>Category:</strong> <%= instrument.category %><br>
+    <strong>Description:</strong> <%= instrument.description %><br>
+    <strong>Price:</strong> <%= instrument.price %><br>
+  </p>
+<% end %>
+<br>
+<%= link_to "Back", root_path %>
