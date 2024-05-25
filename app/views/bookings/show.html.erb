@@ -4,7 +4,7 @@
   <div class="card border-dark" style="width: 18rem; border-radius: 8px;">
     <%= image_tag @booking.instrument.picture, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
     <div class="mx-2">
-      <p>Instrument name <%=  @booking.instrument.name %></p>
+      <p><%=  @booking.instrument.name %></p>
       <p>Statut de votre booking : <%=@booking.status%></p>
       <p>Date de début : <%= @booking.start_date %></p>
       <p>Date de fin : <%= @booking.end_date %></p>
@@ -16,7 +16,6 @@
       </svg>
     </div>
   </div>
-
 </div>
 
 <%= render "layouts/footer" %>

@@ -14,6 +14,7 @@ class InstrumentsController < ApplicationController
   # GET /instruments/:id
   def owner
     @instruments = Instrument.by_owner(current_user)
+    @bookings = Booking.where(renter: current_user)
   end
 
   # GET /instruments/new
