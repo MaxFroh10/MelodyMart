@@ -1,0 +1,17 @@
+h1>Bookings</h1>
+
+<div id="bookings">
+  <% @bookings.each do |booking| %>
+    <%= render booking %>
+    <p>
+      <%= link_to 'Show', booking_path(booking) %>
+      <%= link_to 'Edit', edit_booking_path(booking) %>
+      <%= link_to 'Delete', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+      <%= link_to 'Dashboard', owner_bookings_path(booking) %>
+      <%# Or use button_to instead of link_to
+      <%= button_to 'Delete', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New booking", new_booking_path %>
