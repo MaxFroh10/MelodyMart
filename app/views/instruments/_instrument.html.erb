@@ -1,9 +1,9 @@
 <div id="<%= dom_id instrument %>">
   <p>
     <strong>Picture:</strong>
-    <%# <%= instrument.picture %>
-    <%= image_tag(instrument.picture, width: "100px", height: "100px") if instrument.picture.present? %>
-  </p>
+    <%= instrument.picture %>
+    <%= cl_image_tag(instrument.picture, width: "100px", height: "100px") if instrument.picture.present? %>
+ </p>
   <p>
     <strong>Category:</strong>
     <%= instrument.category %>
