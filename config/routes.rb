@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :instruments do
     resources :bookings, only: %i[new create show]
+    # Add route to show all instruments owned by the current user
+    collection do
+      get 'owner'
+    end
   end
-  # Route pour l'action destroy
-  # delete '/instruments/:id', to: 'instruments#destroy', as: 'destroy_instrument'
 end
