@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       get 'owner'
     end
   end
+  resources :bookings, only: %i[index]
 end
