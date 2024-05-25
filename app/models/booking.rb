@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
   validates :renter, presence: true
   validates :instrument, presence: true
 
-  validates :start_date, presence: true, comparison: { greater_than: Time.now }
-  validates :end_date, presence: true, comparison: { greater_than: :start_date }
+  validates :start_date, presence: true, comparison: { greater_than_or_equal_to: Date.today }
+  validates :end_date, presence: true, comparison: { greater_than_or_equal_to: :start_date }
   validates :status, presence: true, inclusion: { in: %w[pending accepted declined] }
 end
