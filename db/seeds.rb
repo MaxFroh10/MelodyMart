@@ -30,14 +30,14 @@ Instrument.create!([
   description: "Ceci est une batterie",
   picture: "https://www.dwdrums.com/_next/image/?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F165398%2F1644x1040%2F38d1e57402%2Fdw_key_drumrug_1644x1040.png&w=1080&q=75"},
   {
-  owner: user1,
+  owner: user2,
   name: "Harpe",
   category: "Corde",
   price: 150,
   description: "Ceci est une harpe",
   picture: "https://www.linstrumentarium.fr/harpes/549-large_default/gaia-acajou.jpg"},
   {
-  owner: user1,
+  owner: user2,
   name: "Violon",
   category: "Vent",
   price: 50,

@@ -1,4 +1,4 @@
-<%= render "navbar" %>
+<%= render "layouts/navbar" %>
 <div class="container d-flex justify-content-center">
 <div class="card border-dark" style="width: 18rem; border-radius: 8px;">
   <%= image_tag @instrument.picture, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
@@ -8,14 +8,12 @@
       <p class="card-text"><%= "#{@instrument.price}€" %></p>
       <div class="d-flex justify-content-end">
        <div>
-         <%= link_to 'Louer', "#", :class => "btn btn-secondary", :style => "border-radius: 6px;" %>
-                <%= link_to 'Editer', edit_instrument_path(@instrument), :class => "btn btn-secondary", :style => "border-radius: 6px;" %>
-
-                <%= link_to 'X', "instrument_path(@instrument)", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, :class => "btn btn-secondary", :style => "border-radius: 6px;"%>
-
+        <%= link_to 'Louer', new_instrument_booking_path(@instrument), :class => "btn btn-secondary", :style => "border-radius: 6px;" %>
+        <%= link_to 'Editer', edit_instrument_path(@instrument), :class => "btn btn-secondary", :style => "border-radius: 6px;" %>
+        <%= link_to 'X', "instrument_path(@instrument)", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, :class => "btn btn-secondary", :style => "border-radius: 6px;"%>
               </div>
               </div>
             </div>
           </div>
         </div>
-<%= render "footer" %>
+<%= render "layouts/footer" %>
