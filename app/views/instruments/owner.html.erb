@@ -1,12 +1,28 @@
-<h1>Your Instruments</h1>
+<%= render "layouts/navbar" %>
 
-<% @instruments.each do |instrument| %>
-  <p>
-    <strong>Name:</strong> <%= instrument.name %><br>
-    <strong>Category:</strong> <%= instrument.category %><br>
-    <strong>Description:</strong> <%= instrument.description %><br>
-    <strong>Price:</strong> <%= instrument.price %><br>
-  </p>
-<% end %>
-<br>
-<%= link_to "Back", root_path %>
+
+<h1 class="d-flex justify-content-center">Mes Instruments</h1>
+<div>
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <% @instruments.each do |instrument| %>
+        <div class="col">
+          <div class="card border-dark" style="width: 18rem; border-radius: 8px;">
+            <%= image_tag instrument.picture, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
+            <div class="card-body">
+              <h5 class="card-title fw-bold"><%= instrument.name %></h5>
+              <p class="card-text"><%= instrument.description %></p>
+              <p class="card-text"><%= "#{instrument.price}€" %></p>
+              <div class="d-flex justify-content-end">
+              <div>
+                  <%= link_to 'Voir', instrument_path(instrument), :class => "btn btn-secondary me-2", :style => "border-radius: 6px;" %>
+                  <%= link_to 'Editer', edit_instrument_path(instrument), :class => "btn btn-secondary", :style => "border-radius: 6px;" %>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+
+<%= render "layouts/footer" %>
