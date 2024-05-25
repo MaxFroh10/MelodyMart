@@ -2,11 +2,6 @@ class InstrumentsController < ApplicationController
   before_action :set_instrument, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
-  # GET /instruments
-  def index
-    @instruments = Instrument.all
-  end
-
   # GET /instruments/:id
   def show
   end
