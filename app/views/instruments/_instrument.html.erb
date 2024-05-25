@@ -2,7 +2,7 @@
   <p>
     <strong>Picture:</strong>
     <%= instrument.picture %>
-    <%= cl_image_tag(instrument.picture, width: "100px", height: "100px") if instrument.picture.present? %>
+    <%= cl_image_tag(instrument.picture.key, width: "100px", height: "100px") if instrument.picture.present? %>
  </p>
   <p>
     <strong>Category:</strong>
