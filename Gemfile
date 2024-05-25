@@ -44,6 +44,11 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Use Cloudinary for load image
+gem 'cloudinary'
+# Protect my api key rails
+gem "dotenv-rails"
+
 gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"

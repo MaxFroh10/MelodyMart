@@ -1,3 +1,5 @@
+require "open-uri"
+
 User.destroy_all
 
 user1 = User.create!({
@@ -14,35 +16,47 @@ p "Created #{User.count} users"
 
 Instrument.destroy_all
 
-Instrument.create!([
+instruments = [
   {
-  owner: user1,
-  name: "Banjo",
-  category: "Guitare",
-  price: 10,
-  description: "ceci est un banjo",
-  picture: "https://d1aeri3ty3izns.cloudfront.net/media/64/647602/600/preview.jpg"},
+    owner_id: user1.id,
+    name: "Banjo",
+    category: "Guitare",
+    price: 10,
+    description: "ceci est un banjo",
+    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+  },
   {
-  owner: user1,
-  name: "Batterie",
-  category: "Percussion",
-  price: 20,
-  description: "Ceci est une batterie",
-  picture: "https://www.dwdrums.com/_next/image/?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F165398%2F1644x1040%2F38d1e57402%2Fdw_key_drumrug_1644x1040.png&w=1080&q=75"},
+    owner_id: user1.id,
+    name: "Batterie",
+    category: "Percussion",
+    price: 20,
+    description: "Ceci est une batterie",
+    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+  },
   {
-  owner: user2,
-  name: "Harpe",
-  category: "Corde",
-  price: 150,
-  description: "Ceci est une harpe",
-  picture: "https://www.linstrumentarium.fr/harpes/549-large_default/gaia-acajou.jpg"},
+    owner_id: user2.id,
+    name: "Harpe",
+    category: "Corde",
+    price: 150,
+    description: "Ceci est une harpe",
+    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+  },
   {
-  owner: user2,
-  name: "Violon",
-  category: "Vent",
-  price: 50,
-  description: "Ceci est un violon",
-  picture: "https://cdn.cultura.com/cdn-cgi/image/width=830/media/pim/pack-violon-massif-1-2-3700180000827_0.jpg"
-}])
+    owner_id: user2.id,
+    name: "Violon",
+    category: "Vent",
+    price: 50,
+    description: "Ceci est un violon",
+    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+  }
+]
+
+instruments.each do |i|
+  file = URI.open(i[:picture_url])
+  i.delete(:picture_url)
+  instrument = Instrument.create(i)
+  instrument.picture.attach(io: file, filename: "#{instrument.id}.png", content_type: "image/png")
+end
+
 
 p "Created #{Instrument.count} instruments"
