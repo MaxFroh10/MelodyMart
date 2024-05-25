@@ -9,4 +9,8 @@ class Instrument < ApplicationRecord
   validates :picture, presence: true
 
   validates :owner, presence: true
+
+  def self.by_owner(owner)
+    where(owner_id: owner.id)
+  end
 end
