@@ -11,6 +11,11 @@ class InstrumentsController < ApplicationController
   def show
   end
 
+  # GET /instruments/:id
+  def owner
+    @instruments = Instrument.by_owner(current_user)
+  end
+
   # GET /instruments/new
   def new
     @instrument = Instrument.new
@@ -19,6 +24,7 @@ class InstrumentsController < ApplicationController
   # POST /instruments
   def create
     @instrument = Instrument.new(instrument_params)
+
     # Add current user as owner of the instrument
     @instrument.owner = current_user
 
@@ -45,8 +51,13 @@ class InstrumentsController < ApplicationController
 
   # DELETE /instruments/:id
   def destroy
-    @instrument.destroy
-    redirect_to instruments_path, notice: "Instrument was successfully destroyed."
+    # Only the owner of the instrument can delete it
+    if @instrument.owner == current_user
+      @instrument.destroy
+      redirect_to instruments_path, notice: "Instrument was successfully destroyed."
+    else
+      redirect_to instruments_path, notice: "You can't delete an instrument that you don't own."
+    end
   end
 
   private

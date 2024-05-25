@@ -8,13 +8,9 @@ class Instrument < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :picture, presence: true
 
+  validates :owner, presence: true
 
-  def available?(start_date, end_date)
-    bookings.each do |booking|
-      if (start_date..end_date).overlaps?(booking.start_date..booking.end_date)
-        return false
-      end
-    end
-    true
+  def self.by_owner(owner)
+    where(owner_id: owner.id)
   end
 end
