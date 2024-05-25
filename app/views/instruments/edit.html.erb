@@ -1,9 +1,9 @@
-<h1>Editing: <%= @instrument.name %> </h1>
+<%= render "navbar" %>
 
+<div class="container d-flex flex-column align-items-center">
+<h1>Editer <%= @instrument.name %> </h1>
 <%= render "form", instrument: @instrument %>
-
-<br>
-
-<div>
-  <%= link_to "Back", @instrument %>
+<div><%= link_to "Retour", @instrument, :class => "btn btn-secondary mt-2", :style => "border-radius: 6px;" %></div>
 </div>
+
+<%= render "footer" %>
