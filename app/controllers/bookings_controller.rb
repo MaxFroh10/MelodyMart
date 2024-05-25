@@ -16,8 +16,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.instrument = @instrument
     @booking.renter = current_user
+    @booking.status = "pending"
     if @booking.save
-      redirect_to root_path
+      redirect_to instrument_booking_path(@instrument, @booking), notice: "Booking was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +28,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-private
+  private
 
   def instrument_params
     params.require(:instrument).permit(:instrument_id)

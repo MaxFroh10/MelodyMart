@@ -7,5 +7,5 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true, comparison: { greater_than: Time.now }
   validates :end_date, presence: true, comparison: { greater_than: :start_date }
-  # validates :status, presence: true, inclusion: { in: %w(pending accepted declined) }
+  validates :status, presence: true, inclusion: { in: %w[pending accepted declined] }
 end
