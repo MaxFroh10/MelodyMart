@@ -4,12 +4,22 @@ User.destroy_all
 
 user1 = User.create!({
   email: "maximerobertcolin@gmail.com",
-  password: "123456"
+  password: "123456",
+  address: "Place de l'Opéra",
+  city: "Paris",
+  state: "Ile de France",
+  zip: "75009",
+  country: "France"
 })
 
 user2 = User.create!({
   email: "huretantoine@gmail.com",
-  password: "123456"
+  password: "123456",
+  address: "40 rue de Maubeuge",
+  city: "Paris",
+  state: "Ile de France",
+  zip: "75009",
+  country: "France"
 })
 
 p "Created #{User.count} users"
