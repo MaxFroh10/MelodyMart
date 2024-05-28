@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_25_134517) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_28_175203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_25_134517) do
     t.index ["renter_id"], name: "index_bookings_on_renter_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "instruments", force: :cascade do |t|
     t.string "category"
     t.string "name"
@@ -65,6 +71,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_25_134517) do
     t.index ["owner_id"], name: "index_instruments_on_owner_id"
   end
 
+  create_table "subcategories", force: :cascade do |t|
+    t.string "name"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -73,6 +87,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_25_134517) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "country"
+    t.float "longitude"
+    t.float "latitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -82,4 +103,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_25_134517) do
   add_foreign_key "bookings", "instruments"
   add_foreign_key "bookings", "users", column: "renter_id"
   add_foreign_key "instruments", "users", column: "owner_id"
+  add_foreign_key "subcategories", "categories"
 end
