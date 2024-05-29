@@ -11,11 +11,27 @@
     <%= javascript_importmap_tags %>
   </head>
 
-
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
   <body>
+
+    <% if alert %>
+      <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
+        <span><%= alert %></span>
+          <a data-bs-dismiss="alert" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </a>
+      </div>
+    <% end %>
+
+
+    <% if notice %>
+      <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+        <span> <%= notice %> </span>
+        <a data-bs-dismiss="alert" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
