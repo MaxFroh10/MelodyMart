@@ -1,11 +1,43 @@
-<h1>Bookings</h1>
+# Show request
+<%= render "layouts/navbar" %>
 
-<div id="bookings">
+<div class="container">
+  <h1 class="d-flex justify-content-center mt-2">Demandes de Location</h1>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
 
-  <% @bookings.each do |booking| %>
-  <div class="booking-card">
-  <%= render booking %>
+    <% if @bookings.any? %>
+      <% @bookings.each do |booking| %>
+        <div class="col">
+          <div class="card border-dark" style="width: 18rem; border-radius: 8px;">
+            <%= image_tag booking.instrument.picture, height: 250, class: "card-img-top border-bottom", style: "border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
+            <div class="mx-2">
+              <p><%= booking.instrument.name %></p>
+
+              <%# Green if approved, orange if pending, red if declined %>
+              <p class="<%= booking.status == 'accepted' ? 'text-success' : booking.status == 'pending' ? 'text-warning' : 'text-danger' %>">
+                Statut booking : <%= booking.status %>
+              </p>
+
+              <% if booking.status == 'pending' %>
+                <div>
+                  <%= button_to 'Accepter', approve_bookings_path(booking_id: booking.id), method: :post, class: "btn btn-success me-2", style: "border-radius: 6px;" %>
+                  <%= button_to 'Refuser', deny_bookings_path(booking_id: booking.id), method: :post, class: "btn btn-danger", style: "border-radius: 6px;" %>
+                </div>
+              <% end %>
+
+              <p>Date de début : <%= booking.start_date %></p>
+              <p>Date de fin : <%= booking.end_date %></p>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    <% else %>
+      <div class="col">
+        <p class="text-center mt-4">Aucune demande faite</p>
+      </div>
+    <% end %>
+
   </div>
-  <% end %>
 </div>
-  <%= link_to 'Back to home', root_path() %>
+
+<%= render "layouts/footer" %>

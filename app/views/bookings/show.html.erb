@@ -5,7 +5,7 @@
     <%= cl_image_tag @booking.instrument.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
     <div class="mx-2">
       <p><%=  @booking.instrument.name %></p>
-      <p>Statut de votre booking : <%=@booking.status%></p>
+      <p>Statut booking : <%=@booking.status%></p>
       <p>Date de début : <%= @booking.start_date %></p>
       <p>Date de fin : <%= @booking.end_date %></p>
     </div>
