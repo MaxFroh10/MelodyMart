@@ -65,6 +65,6 @@ class InstrumentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def instrument_params
-    params.require(:instrument).permit(:category, :name, :description, :price, :picture, :owner)
+    params.require(:instrument).permit(:category_id, :subcategory_id, :name, :description, :price, :picture, :owner)
   end
 end
