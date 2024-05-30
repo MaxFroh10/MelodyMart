@@ -1,0 +1,6 @@
+<h2><%= user.email %></h2>
+
+<li><% Instrument.where("owner_id = #{user.id}").each do |instrument| %>
+  <ul><%= image_tag instrument.picture, height:50 %>
+  <%= link_to instrument.name, instrument_path(instrument) %></ul>
+<% end %></li>
