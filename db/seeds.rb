@@ -120,7 +120,6 @@ instruments = [
   }
 ]
 
-
 instruments.each do |i|
   file = URI.open(i[:picture_url])
   i.delete(:picture_url)
