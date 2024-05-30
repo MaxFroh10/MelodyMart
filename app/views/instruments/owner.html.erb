@@ -6,7 +6,7 @@
     <% @bookings.each do |booking| %>
       <div class="col">
         <div class="card border-dark" style="width: 18rem; border-radius: 8px;">
-          <%= image_tag booking.instrument.picture, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
+          <%= cl_image_tag @instrument.booking.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
           <div class="mx-2">
             <p><%=  booking.instrument.name %></p>
             <p>Statut de votre booking : <%=booking.status%></p>
@@ -23,7 +23,7 @@
     <% @instruments.each do |instrument| %>
       <div class="col">
         <div class="card border-dark" style="width: 18rem; border-radius: 8px;">
-          <%= image_tag instrument.picture, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
+          <%=  cl_image_tag @instrument.booking.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
           <div class="card-body">
             <h5 class="card-title fw-bold"><%= instrument.name %></h5>
             <p class="card-text"><%= instrument.description %></p>
