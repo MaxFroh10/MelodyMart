@@ -2,7 +2,7 @@
 
 <div class="d-flex justify-content-center">
   <div class="card border-dark" style="width: 18rem; border-radius: 8px;">
-    <%= cl_image_tag @instrument.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
+    <%= cl_image_tag @booking.instrument.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
     <div class="mx-2">
       <p><%=  @booking.instrument.name %></p>
       <p>Statut de votre booking : <%=@booking.status%></p>

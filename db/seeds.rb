@@ -20,7 +20,7 @@ instruments = [
   {
     owner_id: user1.id,
     name: "Banjo",
-    category: "Guitare",
+    category: "String",
     price: 10,
     description: "ceci est un banjo",
     picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
@@ -36,7 +36,7 @@ instruments = [
   {
     owner_id: user2.id,
     name: "Harpe",
-    category: "Corde",
+    category: "String",
     price: 150,
     description: "Ceci est une harpe",
     picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
@@ -44,7 +44,7 @@ instruments = [
   {
     owner_id: user2.id,
     name: "Violon",
-    category: "Vent",
+    category: "String",
     price: 50,
     description: "Ceci est un violon",
     picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
