@@ -8,4 +8,9 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true, comparison: { greater_than_or_equal_to: Date.today }
   validates :end_date, presence: true, comparison: { greater_than_or_equal_to: :start_date }
   validates :status, presence: true, inclusion: { in: %w[pending accepted declined] }
+
+  # Method to find bookings where the instrument's owner is the given user
+  def self.for_owner(user)
+    joins(:instrument).where(instruments: { owner_id: user.id })
+  end
 end

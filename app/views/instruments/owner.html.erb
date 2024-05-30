@@ -1,19 +1,31 @@
 <%= render "layouts/navbar" %>
 
 <div class="container">
-  <h1 class="d-flex justify-content-center mt-2">Mes bookings</h1>
+  <h1 class="d-flex justify-content-center mt-2">Mes Locations</h1>
   <div class="row row-cols-1 row-cols-md-4 g-4">
-    <% @bookings.each do |booking| %>
+
+    <% if @bookings.any? %>
+      <% @bookings.each do |booking| %>
       <div class="col">
         <div class="card border-dark" style="width: 18rem; border-radius: 8px;">
           <%= cl_image_tag @instrument.booking.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
           <div class="mx-2">
             <p><%=  booking.instrument.name %></p>
-            <p>Statut de votre booking : <%=booking.status%></p>
+
+            <%# Green if approved, orange if pending, red if declined %>
+            <p class="<%= booking.status == 'accepted' ? 'text-success' : booking.status == 'pending' ? 'text-warning' : 'text-danger' %>">
+              Statut booking : <%= booking.status %>
+            </p>
+
             <p>Date de début : <%= booking.start_date %></p>
             <p>Date de fin : <%= booking.end_date %></p>
           </div>
         </div>
+      </div>
+    <% end %>
+    <% else %>
+      <div class="col">
+        <p class="text-center mt-4">Aucune location soumise</p>
       </div>
     <% end %>
   </div>
