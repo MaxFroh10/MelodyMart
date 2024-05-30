@@ -1,9 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon mb-3">
-  <div class="container-fluid">
+  <div class="container-fluid mx-4">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center ">
         <%= image_tag "logo.png"%>
-        <p class="mb-0">MelodyMart</p>
+        <p class="m-md-2">MelodyMart</p>
       </div>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,9 +12,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Accueil", root_path, class: "nav-link" %>
-          </li>
+          <%# <li class="nav-item active"> %>
+            <%# <%= link_to "Accueil", root_path, class: "nav-link" %>
+          <%# </li> %>
             <li class="nav-item active">
               <%= link_to "Ajouter un Instrument", new_instrument_path, class: "nav-link" %>
             </li>
