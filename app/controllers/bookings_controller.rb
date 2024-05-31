@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.status = 'pending'
 
     if @booking.save
-      redirect_to instrument_booking_path(@instrument, @booking), notice: "Booking was successfully created."
+      redirect_to owner_instruments_path(@instrument, @booking), notice: "Booking was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
