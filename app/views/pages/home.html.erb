@@ -17,6 +17,12 @@
   </div>
 </div>
 
+<%# ------------------------------------------------------------------------------ %>
+
+<%# Titre %>
+<div id="titre1" class="d-flex justify-content-center pt-5 text-center">
+  <h2><strong>Instruments les plus demandés</strong></h2>
+</div>
 
 <%# Barre de recherche %>
 
@@ -33,41 +39,42 @@
   </div>
 </div>
 
-<%# Emplacement de la MAP %>
+<%# grille des cards et de la map %>
 
-<div class="container mb-3" style="width: 100%; height: 400px; max-width: 1200px; "
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="main-container m-5">
+ <div class="row">
+  <%# bloc avec les cardes  des instruments qu'on peut louer %>
 
-<%# Titre %>
-<div id="titre1" class="d-flex justify-content-center pt-5 text-center">
-  <h2><strong>Les instruments les plus demandés</strong></h2>
+    <%# <div class="containers"> %>
+      <div class="cards col-6 col-md-2">
+        <% @instruments.each do |instrument| %>
+            <div class="card">
+              <%= cl_image_tag instrument.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
+              <div class="card-body">
+                <h5 class="card-title fw-bold"><%= instrument.name %></h5>
+                <p class="card-text"><%= instrument.description %></p>
+                <p class="card-text"><%= "#{instrument.price}€" %></p>
+                  <div class="d-flex justify-content-end">
+                    <div>
+                      <%= link_to 'Voir', instrument_path(instrument), class: "btn btn-flat me-2" %>
+                      <%= link_to "Louer", new_instrument_booking_path(instrument), class: "btn btn-gradient"%>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    <%# </div> %>
+
+  <%# Emplacement de la MAP %>
+  <div id="map" class="col-3 col-md-3"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+ </div>
 </div>
 
-
-<%# bloc avec les cardes  des instruments qu'on peut louer %>
-
-<div class="container">
-      <div class="row row-cols-1 row-cols-md-4 g-4 py-5">
-        <% @instruments.each do |instrument| %>
-        <div class="col">
-          <div class="card" style="width: 19rem; border-radius: 8px; shadow-sm">
-            <%= cl_image_tag instrument.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
-            <div class="card-body">
-              <h5 class="card-title fw-bold"><%= instrument.name %></h5>
-              <p class="card-text"><%= instrument.description %></p>
-              <p class="card-text"><%= "#{instrument.price}€" %></p>
-                <div class="d-flex justify-content-end">
-                  <div>
-                    <%= link_to 'Voir', instrument_path(instrument), class: "btn btn-flat me-2" %>
-                    <%= link_to "Louer", new_instrument_booking_path(instrument), class: "btn btn-gradient"%>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      </div>
-    </div>
+<%# Footer %>
 <%= render "layouts/footer" %>

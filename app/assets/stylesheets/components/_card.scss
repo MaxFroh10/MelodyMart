@@ -1,8 +1,26 @@
 .card{
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-gap: 16px;
   background-color: #fff;
-      border-radius: .5rem;
-      box-shadow: 0 .3rem .4rem 0 rgba(0, 0, 0, .03);
-      padding: 2rem;
-      position: relative;
-      width: 100%;
+  border-radius: .5rem;
+  box-shadow: 0 .3rem .4rem 0 rgba(0, 0, 0, .03);
+  padding: 2rem;
+  width: 18rem;
+
+    //  &:hover{
+    //   background-color: #fff;
+    //   border-radius: .5rem;
+    //   box-shadow: 0 0.3rem 0.4rem 0 rgba(0, 0, 0, 0.7);
+    //   padding: 2rem;
+    //   width: 100%;
+    // }
+
+}
+
+.cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
 }
