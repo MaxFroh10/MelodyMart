@@ -4,6 +4,7 @@
    <%= cl_image_tag @instrument.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
     <div class="card-body">
       <h5 class="card-title fw-bold"><%= @instrument.name %></h5>
+      <h6 class="card-title fw">(by <%= @instrument.owner.pseudo %> 😊👍)</h6>
       <p class="card-text"><%= @instrument.description %></p>
       <p class="card-text"><%= "#{@instrument.price}€" %></p>
       <div class="d-flex justify-content-end">
