@@ -1,25 +1,32 @@
+<%# NAVBAR  %>
 <%= render "layouts/navbar" %>
 
+<%# emplacement du HERO BANNER %>
 
 <div class="container">
   <div class="row row-cols-1 g-4">
 
-    <div class="banner m-5 mx-auto px-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+    <div class="banner m-5 mx-auto px-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://stuff.fendergarage.com/images/V/L/l/Web_Fender_0919_23_VinteraIISeries_NPI_Launch_HPS_Desktop_1920x1080-2@2x.jpg);">
       <div class="container">
-        <h1>La solution révolutionnaire pour louer votre instrument de musique</h1>
-        <p>Choisissez votre instrument et votre mensualité selon votre budget. Arrêtez quand vous le souhaitez ou allez jusqu'au bout et l'instrument est à vous !</p>
+        <h1>Où que vous soyez, <br>impressionnez vos amis !</h1>
+        <p>Louez l'instrument de vos rêves dès aujourd'hui.</p>
+        <a class="btn btn-flat" href="#titre1">Let's rock !</a>
       </div>
     </div>
 
   </div>
 </div>
 
-<div class="container mb-3" style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<%# ------------------------------------------------------------------------------ %>
+
+<%# Titre %>
+<div id="titre1" class="d-flex justify-content-center pt-5 text-center">
+  <h2><strong>Instruments les plus demandés</strong></h2>
+</div>
+
 <%# Barre de recherche %>
-<div class="container">
+
+<div class="container mb-5" style="width: 1000px;">
   <div class="row row-cols-1 g-4">
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
     <div class="search-form-control form-group">
@@ -32,29 +39,42 @@
   </div>
 </div>
 
+<%# grille des cards et de la map %>
 
-<%# bloc avec les cardes  des instruments qu'on peut louer %>
+<div class="main-container m-5">
+ <div class="row">
+  <%# bloc avec les cardes  des instruments qu'on peut louer %>
 
-<div class="container">
-      <div class="row row-cols-1 row-cols-md-4 g-4 py-5">
+    <%# <div class="containers"> %>
+      <div class="cards col-6 col-md-2">
         <% @instruments.each do |instrument| %>
-        <div class="col">
-          <div class="card" style="width: 19rem; border-radius: 8px; shadow-sm">
-            <%= cl_image_tag instrument.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
-            <div class="card-body">
-              <h5 class="card-title fw-bold"><%= instrument.name %></h5>
-              <p class="card-text"><%= instrument.description %></p>
-              <p class="card-text"><%= "#{instrument.price}€" %></p>
-                <div class="d-flex justify-content-end">
-                  <div>
-                    <%= link_to 'Voir', instrument_path(instrument), class: "btn btn-flat me-2" %>
-                    <%= link_to "Louer", new_instrument_booking_path(instrument), class: "btn btn-gradient"%>
+            <div class="card">
+              <%= cl_image_tag instrument.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
+              <div class="card-body">
+                <h5 class="card-title fw-bold"><%= instrument.name %></h5>
+                <p class="card-text"><%= instrument.description %></p>
+                <p class="card-text"><%= "#{instrument.price}€" %></p>
+                  <div class="d-flex justify-content-end">
+                    <div>
+                      <%= link_to 'Voir', instrument_path(instrument), class: "btn btn-flat me-2" %>
+                      <%= link_to "Louer", new_instrument_booking_path(instrument), class: "btn btn-gradient"%>
+                    </div>
                   </div>
-                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
       </div>
-    </div>
+    <%# </div> %>
+
+  <%# Emplacement de la MAP %>
+  <div id="map" class="col-3 col-md-3"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+ </div>
+</div>
+
+<%# Footer %>
 <%= render "layouts/footer" %>
