@@ -10,7 +10,8 @@
         <div class="card border-dark" style="width: 18rem; border-radius: 8px;">
           <%= cl_image_tag booking.instrument.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
           <div class="mx-2">
-            <p><%=  booking.instrument.name %></p>
+            <h5 class="card-title fw-bold"><%= booking.instrument.name %></h5>
+            <h6 class="card-title fw">(by <%= booking.instrument.owner.pseudo %> 😊👍)</h6>
 
             <%# Green if approved, orange if pending, red if declined %>
             <p class="<%= booking.status == 'accepted' ? 'text-success' : booking.status == 'pending' ? 'text-warning' : 'text-danger' %>">
