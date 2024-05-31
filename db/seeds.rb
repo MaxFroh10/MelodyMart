@@ -30,42 +30,63 @@ p "Created #{Subcategory.count} instruments"
 
 User.destroy_all
 
-user1 = User.create!({
-  email: "maximerobertcolin@gmail.com",
-  password: "123456",
-  address: "Place de l'Opéra",
-  city: "Paris",
-  state: "Ile de France",
-  zip: "75009",
-  country: "France"
-})
+user1 = User.create!(
+  {
+    email: "maximerobertcolin@gmail.com",
+    password: "123456",
+    address: "4 RUE JACQUES LOUVEL-TESSIER",
+    city: "Paris",
+    state: "Ile de France",
+    zip: "75010",
+    country: "France",
+    pseudo: "MadMax"
+  }
+)
 
-user2 = User.create!({
-  email: "huretantoine@gmail.com",
-  password: "123456",
-  address: "40 rue de Maubeuge",
-  city: "Paris",
-  state: "Ile de France",
-  zip: "75009",
-  country: "France"
-})
+user2 = User.create!(
+  {
+    email: "huretantoine@gmail.com",
+    password: "123456",
+    address: "10 Place de la Concorde",
+    city: "Paris",
+    state: "Ile de France",
+    zip: "75008",
+    country: "France",
+    pseudo: "Tony"
+  }
+)
 
-user3 = User.create!({
-  email: "maxence.frohlicher@icloud.com",
-  password: "123456"
-})
+user3 = User.create!(
+  {
+    email: "maxence.frohlicher@icloud.com",
+    password: "123456",
+    address: "40 rue de Maubeuge",
+    city: "Paris",
+    state: "Ile de France",
+    zip: "75009",
+    country: "France",
+    pseudo: "Maxou"
+  }
+)
 
-user4 = User.create!({
-  email: "christophe.marco@net-c.fr",
-  password: "123456"
-})
-
+user4 = User.create!(
+  {
+    email: "christophe.marco@net-c.fr",
+    password: "123456",
+    address: "2 place Léon-Blum",
+    city: "Paris",
+    state: "Ile de France",
+    zip: "75011",
+    country: "France",
+    pseudo: "Toffy"
+  }
+)
 
 p "Created #{User.count} users"
 
 Instrument.destroy_all
 instruments = [
-    {
+  {
     owner_id: user1.id,
     name: "Banjo",
     category: Category.find_by(name: "String"),
@@ -120,7 +141,7 @@ instruments = [
     picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
   },
   {
-    owner_id: user1.id,
+    owner_id: user4.id,
     name: "Basse",
     category: Category.find_by(name: "String"),
     subcategory: Subcategory.find_by(name: "Bass"),
@@ -131,11 +152,11 @@ instruments = [
 ]
 
 instruments.each do |i|
+  # Code to be secured against Injection, Dos, CRE and error management [CM]
   file = URI.open(i[:picture_url])
   i.delete(:picture_url)
   instrument = Instrument.create(i)
   instrument.picture.attach(io: file, filename: "#{instrument.id}.png", content_type: "image/png")
 end
-
 
 p "Created #{Instrument.count} instruments"
