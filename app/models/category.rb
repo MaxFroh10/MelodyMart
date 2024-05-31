@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
 
-  has_many :instruments, dependent: :destroy
+  has_many :instruments
   validates :name, presence: true
 
 end
