@@ -6,10 +6,11 @@
 <div class="container">
   <div class="row row-cols-1 g-4">
 
-    <div class="banner m-5 mx-auto px-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+    <div class="banner m-5 mx-auto px-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://stuff.fendergarage.com/images/V/L/l/Web_Fender_0919_23_VinteraIISeries_NPI_Launch_HPS_Desktop_1920x1080-2@2x.jpg);">
       <div class="container">
-        <h1>La solution révolutionnaire pour louer votre instrument de musique</h1>
-        <p>Choisissez votre instrument et votre mensualité selon votre budget. Arrêtez quand vous le souhaitez ou allez jusqu'au bout et l'instrument est à vous !</p>
+        <h1>Où que vous soyez, <br>impressionnez vos amis !</h1>
+        <p>Louez l'instrument de vos rêves dès aujourd'hui.</p>
+        <a class="btn btn-flat" href="#titre1">Let's rock !</a>
       </div>
     </div>
 
@@ -38,6 +39,12 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<%# Titre %>
+<div id="titre1" class="d-flex justify-content-center pt-5 text-center">
+  <h2><strong>Les instruments les plus demandés</strong></h2>
+</div>
+
 
 <%# bloc avec les cardes  des instruments qu'on peut louer %>
 
