@@ -1,5 +1,7 @@
+<%# NAVBAR  %>
 <%= render "layouts/navbar" %>
 
+<%# emplacement du HERO BANNER %>
 
 <div class="container">
   <div class="row row-cols-1 g-4">
@@ -14,12 +16,10 @@
   </div>
 </div>
 
-<div class="container mb-3" style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 <%# Barre de recherche %>
-<div class="container">
+
+<div class="container mb-5" style="width: 1000px;">
   <div class="row row-cols-1 g-4">
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
     <div class="search-form-control form-group">
@@ -32,6 +32,12 @@
   </div>
 </div>
 
+<%# Emplacement de la MAP %>
+
+<div class="container mb-3" style="width: 100%; height: 400px; max-width: 1200px; "
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <%# bloc avec les cardes  des instruments qu'on peut louer %>
 
