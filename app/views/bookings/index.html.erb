@@ -20,7 +20,7 @@
               </p>
 
               <% if booking.status == 'pending' %>
-                <div>
+                <div class="d-flex">
                   <%= button_to 'Accepter', approve_bookings_path(booking_id: booking.id), method: :post, class: "btn btn-success me-2", style: "border-radius: 6px;" %>
                   <%= button_to 'Refuser', deny_bookings_path(booking_id: booking.id), method: :post, class: "btn btn-danger", style: "border-radius: 6px;" %>
                 </div>
