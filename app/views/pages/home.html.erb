@@ -50,8 +50,8 @@
       <div class="cards col-6">
         <% @instruments.each do |instrument| %>
             <div class="card">
-              <%= cl_image_tag instrument.picture.key, height:100, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
-              <div class="card-body">
+              <%= cl_image_tag instrument.picture.key, height:200, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
+              <div class="card-body p-2">
                 <h5 class="card-title fw-bold"><%= instrument.name %></h5>
                 <h6 class="card-title fw">(by <%= instrument.owner.pseudo %> 😊👍)</h6>
                 <p class="card-text"><%= instrument.description %></p>
