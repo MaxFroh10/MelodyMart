@@ -39,7 +39,7 @@ class InstrumentsController < ApplicationController
   # PATCH /instruments/:id/edit
   def update
     if @instrument.update(instrument_params)
-      redirect_to @instrument, notice: "Instrument was successfully updated."
+      redirect_to owner_instruments_path, notice: "Instrument was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -50,9 +50,9 @@ class InstrumentsController < ApplicationController
     # Only the owner of the instrument can delete it
     if @instrument.owner == current_user
       @instrument.destroy
-      redirect_to instruments_path, notice: "Instrument was successfully destroyed."
+      redirect_to owner_instruments_path, notice: "Instrument was successfully destroyed."
     else
-      redirect_to instruments_path, notice: "You can't delete an instrument that you don't own."
+      redirect_to owner_instruments_path, notice: "You can't delete an instrument that you don't own."
     end
   end
 
