@@ -32,6 +32,10 @@
       </div>
     <% end %>
 
-    <%= yield %>
+    <div class="page-container">
+      <div class="navbar-lewagon"><%= render "layouts/navbar" %></div>
+      <div class="content-container"><%= yield %></div>
+      <div class="footer-container"><%= render "layouts/footer" %></div>
+    </div>
   </body>
 </html>

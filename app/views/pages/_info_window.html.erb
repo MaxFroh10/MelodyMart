@@ -1,6 +1,10 @@
-<h2><%= user.email %></h2>
+<div class="p-4">
+  <p class="fw-lighter fs-3"><%= user.pseudo %></p>
+  <p class="m-0"><%= user.address %></p>
+  <p><%= user.city %></p>
 
-<li><% Instrument.where("owner_id = #{user.id}").each do |instrument| %>
-  <ul><%= image_tag instrument.picture, height:50 %>
-  <%= link_to instrument.name, instrument_path(instrument) %></ul>
-<% end %></li>
+  <% Instrument.where("owner_id = #{user.id}").each do |instrument| %>
+    <p><%= image_tag instrument.picture, height:50, class:"me-1", style:"border-radius: 6px;" %>
+    <%= link_to instrument.name, instrument_path(instrument), :class => "btn btn-flat p-2", :style => "border-radius: 6px;" %></p>
+  <% end %>
+</div>

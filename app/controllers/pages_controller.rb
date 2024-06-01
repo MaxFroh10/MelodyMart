@@ -2,11 +2,15 @@ class PagesController < ApplicationController
   def home
     @instruments = Instrument.all
 
-    @markers = User.joins(:instruments).geocoded.uniq.map do |user|
+    if params[:search] && params[:search][:query].present?
+      @instruments = @instruments.where("name ILIKE :query", query: "%#{params[:search][:query]}%")
+    end
+
+    @markers = @instruments.joins(:owner).uniq.map do |instrument|
       {
-        lat: user.latitude,
-        lng: user.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {user: user})
+        lat: instrument.owner.latitude,
+        lng: instrument.owner.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {user: instrument.owner})
       }
     end
   end
