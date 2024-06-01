@@ -88,66 +88,66 @@ Instrument.destroy_all
 instruments = [
   {
     owner_id: user1.id,
-    name: "Banjo",
+    name: "Piano",
     category: Category.find_by(name: "String"),
     subcategory: Subcategory.find_by(name: "Banjo"),
     price: 10,
-    description: "ceci est un banjo",
-    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+    description: "ceci est un piano",
+    picture_url: "https://source.unsplash.com/featured/500x500/?piano"
   },
   {
     owner_id: user1.id,
-    name: "Batterie",
+    name: "Guitare",
     category: Category.find_by(name: "Percussion"),
     subcategory: Subcategory.find_by(name: "Drums"),
     price: 20,
-    description: "Ceci est une batterie",
-    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+    description: "Ceci est une guitare",
+    picture_url: "https://source.unsplash.com/featured/500x500/?guitare"
   },
   {
     owner_id: user2.id,
-    name: "Harpe",
+    name: "Saxophone",
     category: Category.find_by(name: "String"),
     subcategory: Subcategory.find_by(name: "Harp"),
     price: 150,
-    description: "Ceci est une harpe",
-    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+    description: "Ceci est un saxophone",
+    picture_url: "https://source.unsplash.com/featured/500x500/?saxophone"
   },
   {
     owner_id: user2.id,
-    name: "Violon",
+    name: "Clarinette",
     category: Category.find_by(name: "String"),
     subcategory: Subcategory.find_by(name: "Violin"),
     price: 50,
-    description: "Ceci est un violon",
-    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+    description: "Ceci est une clarinette",
+    picture_url: "https://source.unsplash.com/featured/500x500/?clarinet"
   },
   {
     owner_id: user3.id,
-    name: "Piano",
+    name: "Batterie",
     category: Category.find_by(name: "Keyboard"),
     subcategory: Subcategory.find_by(name: "Piano"),
     price: 100,
-    description: "Ceci est un piano",
-    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+    description: "Ceci est une batterie",
+    picture_url: "https://source.unsplash.com/featured/500x500/?drum"
   },
   {
     owner_id: user3.id,
-    name: "Synthétiseur",
+    name: "Accordéon",
     category: Category.find_by(name: "Keyboard"),
     subcategory: Subcategory.find_by(name: "Synthesizer"),
     price: 80,
-    description: "Ceci est un synthétiseur",
-    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+    description: "Ceci est un accordéon",
+    picture_url: "https://source.unsplash.com/featured/500x500/?accordion"
   },
   {
     owner_id: user4.id,
-    name: "Basse",
+    name: "Violon",
     category: Category.find_by(name: "String"),
     subcategory: Subcategory.find_by(name: "Bass"),
     price: 30,
-    description: "Ceci est une basse",
-    picture_url: "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSqHJspqLxk7fNj-mt_QcZQqsS-B4ui1ykrK8wzGztqPVnlJcFxawJ9DWOHiSHZNuP-"
+    description: "Ceci est un violon",
+    picture_url: "https://source.unsplash.com/featured/500x500/?violon"
   }
 ]
 
