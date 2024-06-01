@@ -5,6 +5,6 @@
 
   <% Instrument.where("owner_id = #{user.id}").each do |instrument| %>
     <p><%= image_tag instrument.picture, height:50, class:"me-1", style:"border-radius: 6px;" %>
-    <%= link_to instrument.name, instrument_path(instrument), :class => "btn btn-primary", :style => "border-radius: 6px;" %></p>
+    <%= link_to instrument.name, instrument_path(instrument), :class => "btn btn-flat p-2", :style => "border-radius: 6px;" %></p>
   <% end %>
 </div>
