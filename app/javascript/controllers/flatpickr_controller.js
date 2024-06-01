@@ -8,7 +8,11 @@ export default class extends Controller {
   static targets = ["startTime", "endTime"];
 
   connect() {
-    flatpickr(this.startTimeTarget, {});
-    flatpickr(this.endTimeTarget, {});
+    flatpickr(this.startTimeTarget, {
+      dateFormat: "d/m/Y", // Set the date format to DD/MM/YYYY
+    });
+    flatpickr(this.endTimeTarget, {
+      dateFormat: "d/m/Y", // Set the date format to DD/MM/YYYY
+    });
   }
 }
