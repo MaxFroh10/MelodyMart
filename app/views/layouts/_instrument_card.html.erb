@@ -1,0 +1,16 @@
+<div class="card <%= card_class %>" style="width: <%= card_width %>; border-radius: 8px;">
+  <%= cl_image_tag instrument.picture.key, height: image_height, class:"card-img-top border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
+  <div class="card-body">
+    <h5 class="card-title fw-bold"><%= instrument.name %></h5>
+    <h6 class="card-title fw"><%= subtitle %></h6>
+    <p class="card-text"><%= instrument.description %></p>
+    <p class="card-text"><%= "#{instrument.price}€" %></p>
+    <div class="d-flex justify-content-end">
+      <div>
+        <%= link_to primary_action_text, primary_action_path, class: "btn btn-secondary", style: "border-radius: 6px;" %>
+        <%= link_to secondary_action_text, secondary_action_path, class: "btn btn-secondary", style: "border-radius: 6px;" if secondary_action_text %>
+        <%= link_to delete_action_text, delete_action_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-secondary", style: "border-radius: 6px;" if delete_action_text %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,9 @@
   <div class="card border-dark px-3" style="width: 18rem; border-radius: 8px;">
     <%= simple_form_for [@instrument, @booking], data: { controller: 'flatpickr' } do |f| %>
       <div class="form-inputs">
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
         <% f.input :instrument %>
         <%= f.input :start_date, label: "Date de début", as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
         <%= f.input :end_date, label: "Date de fin", as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
