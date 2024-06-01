@@ -55,7 +55,7 @@
                 <h5 class="card-title fw-bold"><%= instrument.name %></h5>
                 <h6 class="card-title fw">(by <%= instrument.owner.pseudo %> 😊👍)</h6>
                 <p class="card-text"><%= instrument.description %></p>
-                <p class="card-text"><%= "#{instrument.price}€" %></p>
+                <p class="card-text"><%= "#{instrument.price.round}€" %></p>
                   <div class="d-flex justify-content-end">
                     <div>
                       <%= link_to 'Voir', instrument_path(instrument), class: "btn btn-flat me-2" %>

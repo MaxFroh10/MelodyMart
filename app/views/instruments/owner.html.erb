@@ -40,7 +40,7 @@
           <div class="card-body">
             <h5 class="card-title fw-bold"><%= instrument.name %></h5>
             <p class="card-text"><%= instrument.description %></p>
-            <p class="card-text"><%= "#{instrument.price}€" %></p>
+            <p class="card-text"><%= "#{instrument.price.round}€" %></p>
             <div class="d-flex justify-content-end">
               <div>
                 <%= link_to 'Louer', new_instrument_booking_path(instrument), :class => "btn btn-secondary", :style => "border-radius: 6px;" %>

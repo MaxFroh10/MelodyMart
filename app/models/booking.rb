@@ -5,6 +5,7 @@ class Booking < ApplicationRecord
   validates :renter, presence: true
   validates :instrument, presence: true
 
+  #validate -> regarder si booking dates comprises dans un autre booking
   validates :start_date, presence: true, comparison: { greater_than_or_equal_to: Date.today }
   validates :end_date, presence: true, comparison: { greater_than_or_equal_to: :start_date }
   validates :status, presence: true, inclusion: { in: %w[pending accepted declined] }
