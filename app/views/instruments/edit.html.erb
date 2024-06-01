@@ -1,9 +1,5 @@
-<%= render "layouts/navbar" %>
-
 <div class="container d-flex flex-column align-items-center">
   <h1>Editer <%= @instrument.name %> </h1>
   <%= render "layouts/form", instrument: @instrument %>
   <div><%= link_to "Retour", @instrument, :class => "btn btn-flat mt-2", :style => "border-radius: 6px;" %></div>
 </div>
-
-<%= render "layouts/footer" %>
