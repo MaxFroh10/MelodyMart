@@ -57,20 +57,17 @@
       <div class="cards col-7">
 
         <% @instruments.each do |instrument| %>
+          <%= link_to instrument_path(instrument), class: "text-decoration-none" do  %>
             <div class="card", style="height:400px;">
-              <%= cl_image_tag instrument.picture.key, height:200, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
-              <div class="card-body p-2">
-                <h5 class="card-title fw-bold"><%= instrument.name %></h5>
-                <h6 class="card-title fw">(by <%= instrument.owner.pseudo %> 😊👍)</h6>
-                <p class="card-text"><%= instrument.description %></p>
-                <p class="card-text"><%= "#{instrument.price}€" %></p>
-                  <div class="d-flex justify-content-end">
-                    <div>
-                      <%= link_to 'Voir', instrument_path(instrument), class: "btn btn-flat me-2" %>
-                    </div>
-                  </div>
+              <%= cl_image_tag instrument.picture.key, height:250, class:"card-img-top; border-bottom", style:"border-top-left-radius: 8px; border-top-right-radius: 8px;" %>
+              <div class="card-body p-2 d-flex flex-column justify-content-center px-3">
+                <h5 class="card-title fw-bold m-0 fs-2"><%= instrument.name %></h5>
+                <h6 class="card-text fw m-0">(by <%= instrument.owner.pseudo %> 😊👍)</h6>
+                <p class="card-text mb-2"><%= instrument.description %></p>
+                <p class="card-text fs-5"><%= "#{instrument.price}€" %></p>
               </div>
             </div>
+          <% end %>
         <% end %>
       </div>
     <%# </div> %>
